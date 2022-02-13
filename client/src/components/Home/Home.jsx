@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllCountries, getCountriesSort } from "../../redux/actions";
 import CountriesCards from "../../containers/Cards/CountriesCards";
 import Pagination from "../Pagination/Pagination";
+import { cargarActividades, listaActividades } from "./Activities";
 import style from "./Home.module.css";
 
 const Home = () => {
@@ -38,14 +39,8 @@ const Home = () => {
     countriesPerPage: 10,
   });
 
-  let actividades = [];
-  countries.map(
-    (data) =>
-      data.activities?.length &&
-      data.activities.map(
-        (activity) => activity.name && actividades.push(activity.name)
-      )
-  );
+  cargarActividades(countries);
+  let actividades = listaActividades;
 
   let indexActivities = actividades.filter(function (item, index, array) {
     return array.indexOf(item) === index;

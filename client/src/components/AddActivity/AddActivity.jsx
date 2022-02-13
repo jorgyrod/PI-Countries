@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCountries, createActivity } from "../../redux/actions";
 import Container from "./Container";
+import { cargarActividades, listaActividades } from "../Home/Activities";
 import styles from "./AddActivity.module.css";
 
 function AddActivity() {
@@ -26,6 +27,8 @@ function AddActivity() {
       });
     }
   }
+  cargarActividades(countries);
+  let actividades = listaActividades;
 
   React.useEffect(() => {
     dispatch(getAllCountries());
@@ -38,12 +41,15 @@ function AddActivity() {
       setErrorSel("Debe de ingresar por lo menos 1 pais");
       alert("Debe de ingresar por lo menos 1 pais");
     } else {
-      setErrorSel("");
-      const codes = addCountries.map((country) => country.id);
-      activity.codesCountries = codes;
-      dispatch(createActivity(activity));
-      alert(`La actividad ${activity.name} ha sido creada`);
-      limpiar();
+      if (!error) {
+        setErrorSel("");
+        const codes = addCountries.map((country) => country.id);
+        activity.codesCountries = codes;
+        dispatch(createActivity(activity));
+        alert(`La actividad ${activity.name} ha sido creada`);
+        limpiar();
+      }
+      alert("Por favor corrija los campos!!");
     }
   }
 
@@ -73,13 +79,18 @@ function AddActivity() {
   function validar(valor) {
     let valoresNumeros = /^[0-9]+$/;
 
+    /*     if (actividades.indexOf(valor) !== -1)
+      alert("El nombre de la actividad ya existe!"); */
+
     if (valor.match(valoresNumeros)) {
       setActivity({
         ...activity,
         name: "",
       });
       setError("El valor ingresado no es de tipo texto");
-    } else setError("");
+    } else if (actividades.indexOf(valor) !== -1)
+      setError("El nombre de la actividad ya existe!");
+    else setError("");
   }
   return (
     <div className={styles.container}>
