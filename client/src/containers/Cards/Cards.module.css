@@ -1,0 +1,10 @@
+.countries{
+    margin: 16px auto;
+    padding: 15px;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 5px solid #3f4457;
+    border-radius: 15px;
+}

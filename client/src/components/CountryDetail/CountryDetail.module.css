@@ -1,0 +1,89 @@
+.container{
+    margin: 50px auto;
+    padding: 15px;
+    width: 95%;
+  
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #191c29;
+    color: #fff;
+}
+
+.imgDetail{
+    width: 32%;
+    height: 65%;
+    border-radius: 13px;
+}
+
+
+.name, .subcontainer, .data, .subdata{
+    display: flex;
+    align-items: center;
+}
+
+.name{
+    margin: 10px;
+    font-size: 33px;
+}
+
+.name > h3{
+    margin-left: 10px;
+}
+
+.subcontainer{
+    width: 100%;
+    height: 65%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.data, .activities, .activCompo{
+    width: 30%;
+    height: 60%;
+    padding: 10px;
+    background-color: #2d61af28;
+    border-radius: 13px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: .6;
+}
+
+.subdata{
+    margin: 3px 10px;
+    width: 90%;
+    padding: 7px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activCompo{
+    margin-top: 20px;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.ch3{
+    margin: auto;
+}
+
+.dataActivity{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.activityContainer{
+    width: 30%;
+    margin: 10px;
+    background-color: #325e83;
+    border-radius: 13px;
+}
+
+.activities > .dataActivity > .activityContainer{
+    width: 100%;
+}

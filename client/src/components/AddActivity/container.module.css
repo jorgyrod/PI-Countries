@@ -1,0 +1,41 @@
+/*-------------------------------*/
+
+.countries {
+    margin-top: 20px;
+    width: 60%;
+    height: 30%;
+    border-radius: 13px 2px;
+    background-color: #556d8b86;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .countries > p {
+    color: #4b5b70;
+    margin: 5px;
+    width: 40%;
+    height: 25%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .item{
+    display: flex;
+    margin: 5px;
+  }
+  
+  .countries > .item > p {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  
+  .countries > .item > button {
+    width: 20px;
+    height: 25px;
+    border-radius: 1px;
+    background: #a80000;
+    box-shadow: 1px 1px 3px #8f0000, -1px -1px 3px #c10000;
+    border-color: #4b5b70;
+    color: #fff;
+  }
