@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CountryCard from "../../components/Card/CountryCard";
 import styles from "./Cards.module.css";
 
@@ -8,7 +8,7 @@ export default function CountriesCards({ countries }) {
     <div className={styles.countries}>
       {countries &&
         countries.map((country) => (
-          <Link to={`/country/${country.cca3}`} key={country.cca3}>
+          <NavLink className={styles.links} to={`/country/${country.cca3}`} key={country.cca3}>
             <CountryCard
               key={country.cca3}
               id={country.cca3}
@@ -16,7 +16,7 @@ export default function CountriesCards({ countries }) {
               region={country.region}
               flags={country.flags}
             />
-          </Link>
+          </NavLink>
         ))}
     </div>
   );
