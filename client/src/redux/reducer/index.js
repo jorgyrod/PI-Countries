@@ -20,7 +20,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case GET_TYPE_ORDER:
       return { ...state, countries: payload };
     case CLEAR_DETAIL:
-      return { ...state, country: {} };
+      return { ...state, countryDetail: {} };
     case CREATE_ACTIVITY:
       return {
         ...state,

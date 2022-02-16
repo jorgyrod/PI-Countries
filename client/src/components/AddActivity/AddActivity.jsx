@@ -48,8 +48,9 @@ function AddActivity() {
         dispatch(createActivity(activity));
         alert(`La actividad ${activity.name} ha sido creada`);
         limpiar();
+      }else{
+        alert("Por favor corrija los campos!!");
       }
-      alert("Por favor corrija los campos!!");
     }
   }
 

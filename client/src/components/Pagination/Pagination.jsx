@@ -19,7 +19,6 @@ function Pagination({ countryPerPage, allCountries, Paginate, actualPage }) {
     let maxPage = actualPage - pageNeighbours * 2 - 1;
     maxPage = maxPage < 2 ? 1 : maxPage;
     Paginate(maxPage);
-    Paginate(maxPage);
   }
 
   function handleMoveRight(e) {
