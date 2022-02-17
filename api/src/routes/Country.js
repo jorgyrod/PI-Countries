@@ -7,12 +7,12 @@ router.get("/", async (req, res, next) => {
   try {
     if (sort || name) {
       const countryFilter = await filter(sort, name);
-      
+
       return countryFilter.length === 0
         ? res.status(404).json({ message: "No related results" })
         : res.status(200).json(countryFilter);
     }
-    
+
     const countryAll = await Country.findAll({
       include: { model: Activity, through: { attributes: [] } },
     });
@@ -75,5 +75,22 @@ async function filter(sort, name) {
     });
   }
 }
+
+/* router.post("/newCountry", async (req, res, next) => {
+  const { name } = req.body;
+  try {
+    const country = await Country.create({
+      name,
+      cca3: "HHH",
+      flags: "No Flags",
+      region: "No Capital",
+      capital: "No Capital",
+      population: "1",
+    });
+    res.status(201).json(country);
+  } catch (error) {
+    next(error);
+  }
+}); */
 
 module.exports = router;

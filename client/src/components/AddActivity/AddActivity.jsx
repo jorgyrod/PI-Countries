@@ -36,6 +36,7 @@ function AddActivity() {
 
   function handleOnSubmit(e) {
     e.preventDefault();
+    if (!activity.name) return setError("Debe ingresar un valor");
 
     if (!addCountries.length) {
       setErrorSel("Debe de ingresar por lo menos 1 pais");
@@ -48,7 +49,7 @@ function AddActivity() {
         dispatch(createActivity(activity));
         alert(`La actividad ${activity.name} ha sido creada`);
         limpiar();
-      }else{
+      } else {
         alert("Por favor corrija los campos!!");
       }
     }
@@ -56,7 +57,10 @@ function AddActivity() {
 
   function handleOnSelect(e) {
     let aux = e.target.value.split(" ");
-    setAddCountries([...addCountries, { id: aux[0], name: aux[1] }]);
+    const country = addCountries.find((c) => c.id === aux[0]);
+    if (!country) {
+      setAddCountries([...addCountries, { id: aux[0], name: aux[1] }]);
+    }
   }
 
   function removeCountry(id) {
@@ -80,9 +84,9 @@ function AddActivity() {
   function validar(valor) {
     let valoresNumeros = /^[0-9]+$/;
 
-    /*     if (actividades.indexOf(valor) !== -1)
-      alert("El nombre de la actividad ya existe!"); */
-
+    if (!valor) {
+      setError("Debe ingresar un valor");
+    }
     if (valor.match(valoresNumeros)) {
       setActivity({
         ...activity,
@@ -104,7 +108,6 @@ function AddActivity() {
               value={activity.name}
               onChange={handleOnChange}
               className={error ? styles.error : styles.input}
-              required
             />
             {!error ? null : <span>{error}</span>}
           </div>
